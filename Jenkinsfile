@@ -16,6 +16,7 @@ node
     customImage.push()
   }
 }
+ stage('ibm Cli') 
   stage('Kubernetes pod')
   {
         sh 'kubectl apply -f service.yaml'
