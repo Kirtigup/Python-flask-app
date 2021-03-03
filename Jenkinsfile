@@ -1,32 +1,24 @@
 node
 {
   stage('Get Source')
-    git 'https://github.com/kirtigup/Python-flask-app.git
-  docker.withRegistry('https://registry.hub.docker.com', 'DockerIdentity')
   {
-    def customImage=docker.build("kirtigupta123456/my-app")
+    git 'https://github.com/Kirtigup/Python-flask-app.git'
+}
+  stage('Docker-build')
+  {
+    sh 'docker build -t kirtigupta123456/my-app '
+  }
+  stage('Docker-push')
+  {
+  docker.withRegistry('https://registry.hub.docker.com', 'DockerIdentity')
+    {
+   def customImage=docker.build("kirtigupta123456/my-app")
     customImage.push()
   }
 }
-  
- 
-node {
-    stage('Get Source'){
-        git 'https://github.com/rtxverma123/flaskrunkubernetes.git'
-        
-    }
-    stage('Docker-build'){
-        sh 'docker build -t rtxverma123/bootstrapkubernetesflask .'
-    }
-    stage('Docker-push'){
-        docker.withRegistry('https://registry.hub.docker.com','Docker'){
-            def customImage = docker.build('rtxverma123/bootstrapkubernetesflask')
-            customImage.push()
-        }
-    }
-    stage('Kubernetes pod'){
-        sh 'kubectl apply -f servicepy.yaml'
-        sh 'kubectl apply -f flask-deployment.yaml'
-        sh 'kubectl get pods'
-    }
-}
+  stage('Kubernetes pod')
+  {
+        sh 'kubectl apply -f service.yaml'
+        sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl apply -f pod.yaml'
+  }}
