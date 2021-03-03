@@ -9,5 +9,5 @@ spec:
     port:80
     nodeport: 5000
  selector:
-    app: my-app
+    app: myapp
     type: front-end
