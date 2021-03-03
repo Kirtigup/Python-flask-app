@@ -5,9 +5,9 @@ metadata:
 spec:
  type: NodePort
  ports:
-  -targetPort: 80
-   port:80
-   nodeport: 5000
+  - targetPort: 80
+    port:80
+    nodeport: 5000
  selector:
     app: my-app
     type: front-end
