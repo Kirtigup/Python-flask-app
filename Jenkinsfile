@@ -20,22 +20,7 @@ pipeline {
             '''
       }
     }
-    stage('Build with Docker') {
-      steps {
-        script {
-        dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Push the image to ICR') {
-      steps {
-        script {
-          docker.withRegistry( '', registryCredential ) {
-          dockerImage.push()
-          }
-        }
-      }
-    }
+
     stage('Deploy to IKS') {
       steps {
         sh '''
