@@ -8,6 +8,7 @@ spec:
     app: my-app
     type: front-end
  ports:
-  - targetPort: 80
-    port: 80
+  - protocol: TCP
+    targetPort: 3001
+    port: 3001
     nodeport: 5000
