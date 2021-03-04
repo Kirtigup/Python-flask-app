@@ -4,7 +4,7 @@ pipeline {
   IBM_CLOUD_REGION = 'us-south'
   REGISTRY_HOSTNAME = 'de.icr.io'
   IKS_CLUSTER = 'c0sagkcd061p803m83rg'
-  DEPLOYMENT_NAME = 'iks-test'
+  DEPLOYMENT_NAME = 'iks-test-1'
   PORT = '3001'
   registry = "kirtigupta123456/my-app"
   registryCredential = 'DockerIdentity'
