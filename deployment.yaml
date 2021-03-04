@@ -2,15 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name : myapp-deployment
+  labels:
+    app: my-app
 spec:
  selector:
-    app: my-app
-    type: front-end
+   matchLabels:
+     app: my-app
     
  template:
    metadata:
      labels:
-       name: myapp-deployment
+       app: my-app
    spec:
      containers:
      - name: app
