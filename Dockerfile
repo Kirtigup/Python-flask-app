@@ -1,5 +1,5 @@
 FROM python:latest
-ADD main.py /
+COPY . /
 RUN pip install Flask
 RUN python3 -m venv venv
 RUN export FLASK_APP=main.py
