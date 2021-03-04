@@ -14,7 +14,7 @@ spec:
    spec:
      containers:
      - name: app
-       image: kirtigupta123456/my-app
+       image: kirtigupta123456/my-app:9
        ports:
-       - containerPort: 3001
+       - containerPort: 80
  
