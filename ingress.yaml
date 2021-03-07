@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/vibeta1
+kind: Ingress
+metadata:
+ name: ingress-rules
+ annotations: 
+  nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+ rules:
+ -host: kirti-gupta.com
+  http:
+   paths:
+   - backend:
+      serviceName: 
+      servicePort: 80
+   
+  
