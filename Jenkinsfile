@@ -58,7 +58,6 @@ pipeline {
             kubectl get services -o wide
             '''
       }
-    }
-  }
-}
+    }}}
+  
 
