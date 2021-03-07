@@ -19,4 +19,5 @@ spec:
        image: kirtigupta123456/my-app:9
        ports:
        - containerPort: 80
+ replicas: 3
  
