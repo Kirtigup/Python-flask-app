@@ -12,42 +12,7 @@ pipeline {
   }
   agent any 
   stages {
-    stage('Install IBM Cloud CLI') {
-      steps { 
-        sh ''' 
-            curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
-            ibmcloud --version
-            ibmcloud config --check-version=false
-            ibmcloud plugin install -f kubernetes-service
-            ibmcloud plugin install -f container-registry
-            '''
-      }
-    }
-    stage('Authenticate with IBM Cloud CLI') {
-      steps {
-        sh '''
-            ibmcloud login --apikey iOWdNWHrRiIeQFd-xMWW_pYrcxGcRul5a4ZInHFi0Kze -r "${IBM_CLOUD_REGION}" -g Default
-            ibmcloud ks cluster config --cluster ${IKS_CLUSTER}
-            '''
-      }
-    }
-     stage('Build with Docker') {
-      steps {
-        script {
-        dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Push the image to ICR') {
-      steps {
-        script {
-          docker.withRegistry( '', registryCredential ) {
-          dockerImage.push()
-          }
-        }
-      }
-    }
-
+   
     stage('Deploy to IKS') {
       steps {
         sh '''
