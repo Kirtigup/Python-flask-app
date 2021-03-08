@@ -9,8 +9,8 @@ spec:
  - host: kirti-gupta.com
    http:
     paths:
-     - backend:
-      serviceName: myapp-service
-      servicePort: 80
+    - backend:
+        serviceName: myapp-service
+        servicePort: 80
    
   
