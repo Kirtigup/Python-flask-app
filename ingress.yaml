@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
  name: ingress-rules
  annotations: 
-  nginx.ingress.kubernetes.io/rewrite-target:/
+  nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
  rules:
  - host: kirti-gupta.com
