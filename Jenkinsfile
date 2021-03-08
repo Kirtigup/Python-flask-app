@@ -56,6 +56,7 @@ pipeline {
             kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/baremetal/deploy.yaml
             kubectl apply -f deployment.yaml
             kubectl apply -f service.yaml
+            kubectl apply -f ingress.yaml
             kubectl get services -o wide
             '''
       }
